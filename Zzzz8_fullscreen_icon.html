@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zzzz8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #fullscreenIcon {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 1000;
+        }
+        #fullscreenIcon:hover {
+            background-color: #0056b3;
+        }
+        iframe {
+            transition: all 0.3s ease-in-out;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="fullscreenIcon" onclick="toggleFullscreen()">
+        <span id="iconSymbol" style="font-size: 20px;">⛶</span>
+    </div>
+    <iframe id="contentFrame" src="https://show.zoho.sa/show/publish/8q9be963d3f8d849e4efe9eb1901433cf7a7c/params?toolbar=false&menu=false&loop=false&viewtype=2" 
+            width="960" height="569" 
+            style="max-width: 100%;">
+    </iframe>
+    <script>
+        let isFullscreen = false;
+        function toggleFullscreen() {
+            const iframe = document.getElementById('contentFrame');
+            const iconSymbol = document.getElementById('iconSymbol');
+            if (!isFullscreen) {
+                iframe.style.width = '100%';
+                iframe.style.height = '100vh';
+                isFullscreen = true;
+                iconSymbol.textContent = '❌'; // Change icon to close
+            } else {
+                iframe.style.width = '960px';
+                iframe.style.height = '569px';
+                isFullscreen = false;
+                iconSymbol.textContent = '⛶'; // Change icon back to fullscreen
+            }
+        }
+    </script>
+</body>
+</html>
